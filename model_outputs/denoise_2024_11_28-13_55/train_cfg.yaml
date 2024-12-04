@@ -1,0 +1,64 @@
+DATASET:
+  MODEL_SAVE_DIR: ./model_outputs/
+  TRAIN_CSV: ./data/noise/train_denoise.csv
+  TRAIN_NOISE:
+  - ./data/noise/noise_combine.csv
+  - ./data/noise/noise_combine_bw.csv
+  - ./data/noise/noise_combine_em.csv
+  - ./data/noise/noise_combine_ma.csv
+  VAL_CSV: ./data/noise/val_denoise.csv
+  VAL_NOISE:
+  - ./data/noise/noise_combine.csv
+  - ./data/noise/noise_combine_bw.csv
+  - ./data/noise/noise_combine_em.csv
+  - ./data/noise/noise_combine_ma.csv
+  n_sample: 5000
+DATASET_CUSTOME:
+  INPUT_LENGTH: 7168
+  LEADS:
+  - I
+  - II
+  - III
+  - aVR
+  - aVL
+  - aVF
+  - V1
+  - V2
+  - V3
+  - V4
+  - V5
+  - V6
+  OUT_C: 1
+  add_noise_ratio: 0.5
+  max_syn_noise: 2
+  random_ranges:
+  - 0.3
+  - 0.5
+MODEL:
+  DEPTHS:
+  - 2
+  - 2
+  - 3
+  - 2
+  Denoise_Mode: true
+  EMBED_DIM: 24
+  N_HEADS:
+  - 3
+  - 6
+  - 12
+  - 24
+  PATCH_SIZE: 2
+  WINDOW_SIZE: 112
+OPTIM:
+  BATCH_SIZE: 64
+  CE_ratio: 0.0
+  Dice_ratio: 0.5
+  Focal_ignore_idx: -100
+  Focal_ratio: 0.5
+  LR_INITIAL: 0.0001
+  LR_MIN: 1.0e-06
+  NUM_EPOCHS: 20
+  SCALE: 1
+RUN_DATE: 2024_11_28-13_55
+SAVE_DIR: ./model_outputs/denoise_2024_11_28-13_55/
+TRY_TIME: denoise
